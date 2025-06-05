@@ -66,10 +66,11 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
    * **Une commande peut avoir plusieurs expéditions.**
 
-     * Chaque ligne _Shipment_ comporte une clé étrangère `order_id` pointant _Order_.
+     * Chaque enregistrement dans la table _Shipment_ comporte une clé étrangère `order_id` pointant vers la table _Order_.
+
    * **Une expédition appartient à une seule commande.**
 
-     * `Shipment.order_id` indique quelle commande est expédiée.
+     * Le champ `Shipment.order_id` indique quelle commande est expédiée.
 
 8. **Order → Payment**
 
