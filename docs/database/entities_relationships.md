@@ -17,9 +17,10 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
    * **Le role `seller` peut être associé à plusieurs utilisateurs.**
 
      * L'utilisateur dispose d'une clé étrangère `seller_id` pouvant être _null_ et faisant référence au vendeur ; plusieurs utilisateurs peuvent partager le même `seller_id`.
+
    * **Un utilisateur peut être un vendeur. (facultatif)**
 
-     * Si `User.seller_id` n'est pas _null_, il pointe vers un seul vendeur.
+     * Si le champ `User.seller_id` n'est pas _null_, il pointe vers un seul vendeur.
 
 3. **User → Review**
 
