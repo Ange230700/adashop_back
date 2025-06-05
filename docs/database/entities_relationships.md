@@ -6,10 +6,11 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
    * **Un utilisateur peut avoir plusieurs adresses.**
 
-     * Chaque ligne dans _Address_ a une clé étrangère `user_id` pointant vers _User_. Un seul utilisateur peut donc apparaître dans plusieurs enregistrements d'adresse.
+     * Chaque enregistrement dans la table _Address_ a une clé étrangère `user_id` pointant vers la table _User_. Un seul utilisateur peut donc apparaître dans plusieurs enregistrements d'adresse.
+
    * **Une adresse appartient à un seul utilisateur.**
 
-     * Chaque ligne _Address_ `user_id` fait référence à un seul utilisateur.
+     * Le champ `user_id` dans la table _Address_ fait référence à un seul utilisateur.
 
 2. **Seller → User**
 
