@@ -156,6 +156,74 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
       * Le champ `Like.product_id` indique quel produit a été aimé.
 
+16. **Product → Seller**
+
+    * **Un vendeur peut proposer plusieurs produits.**
+
+      * Conceptuellement, chaque produit est mis en vente par un ou plusieurs vendeurs (typiquement, un seul vendeur).
+
+    * **Un produit appartient à un seul vendeur.**
+
+      * On pourrait ajouter, dans la table *Product*, une colonne `seller_id` (clé étrangère qui pointe vers *Seller*), pour savoir qui commercialise ce produit.
+
+17. **Review → Product**
+
+    * **Un produit peut recevoir plusieurs avis.**
+
+      * Les utilisateurs rédigent généralement des avis sur des produits précis.
+
+    * **Un avis porte sur un seul produit.**
+
+      * On pourrait enrichir la table *Review* en lui ajoutant une colonne `product_id` (clé étrangère qui pointe vers *Product*) pour lier chaque avis au produit concerné.
+
+18. **Order → Address (adresse de livraison)**
+
+    * **Une commande est livrée à une seule adresse.**
+
+      * Plutôt que de stocker l’adresse de livraison dans un texte libre (ou rien), on pourrait ajouter dans *Order* une colonne `shipping_address_id` (clé étrangère qui pointe vers *Address*), afin de lier la commande à l’adresse enregistrée chez l’utilisateur.
+
+    * **Une adresse (de l’utilisateur) peut servir à plusieurs commandes.**
+
+      * Une même adresse (résidentielle) peut être utilisée pour plusieurs livraisons.
+
+19. **Payment → User (en tant que payeur)**
+
+    * **Un utilisateur peut effectuer plusieurs paiements.**
+
+      * Bien que *Order* référence déjà l’utilisateur, on peut souhaiter savoir directement qui a procédé à chaque paiement (par exemple si un administrateur enregistre un paiement manuel).
+
+    * **Un paiement appartient à un seul utilisateur.**
+
+      * On ajouterait une colonne `user_id` (clé étrangère qui pointe vers *User*) dans *Payment*, pour tracer qui a initié ou autorisé le règlement.
+
+20. **OrderItem → Seller**
+
+    * **Un vendeur peut apparaître dans plusieurs lignes de commande (OrderItem).**
+
+      * Comme chaque ligne de commande correspond à un produit, et qu’on a lié chaque produit à un vendeur (voir point 16), on peut en déduire qu’une même commande peut contenir des articles provenant de vendeurs différents.
+
+    * **Chaque ligne de commande (OrderItem) est associée, via le produit, à un unique vendeur.**
+
+21. **ShoppingCart → UserSession (contexte de navigation)**
+
+    * **Une session utilisateur peut être liée à un panier spécifique.**
+
+      * Pour savoir à quelle session correspond le panier courant (pratique si l’on veut restaurer un panier abandonné).
+
+    * **Un panier appartient à une seule session.**
+
+      * On pourrait ajouter, dans *ShoppingCart*, une colonne `user_session_id` (clé étrangère qui pointe vers *UserSession*).
+
+22. **Seller → Address (adresse du magasin)**
+
+    * **Un vendeur a une adresse physique (magasin ou entrepôt).**
+
+      * Actuellement, la table *Seller* contient un champ `address_seller` en texte libre. On pourrait à la place ou en plus faire pointer un FK `address_id` vers la table *Address*.
+
+    * **Une adresse (de type magasin/entrepôt) appartient à un seul vendeur.**
+
+      * On ajoute alors, dans *Seller*, `address_id` (clé étrangère qui pointe vers *Address*) pour gérer proprement l’adresse postale du vendeur.
+
 ---
 
 Pour résumer, dans le style “Entity A → Entity B” (One‐to‐Many):
@@ -175,6 +243,13 @@ Pour résumer, dans le style “Entity A → Entity B” (One‐to‐Many):
 * **User → UserSession** (1 user : *many* `user_sessions`)
 * **User → Like** (1 user : *many* likes)
 * **Product → Like** (1 product : *many* likes)
+* **Product → Seller** (1 seller : *many* produits)
+* **Review → Product** (1 product : *many* reviews)
+* **Order → Address** (1 order : *1* address)
+* **Payment → User** (1 user : *many* payments)
+* **OrderItem → Seller** (1 seller : *many* `order_items`, via product)
+* **ShoppingCart → UserSession** (1 `user_session` : *1* `shopping_cart`)
+* **Seller → Address** (1 seller : *1* address)
 
 Et les tables de liaison :
 
