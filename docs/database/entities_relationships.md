@@ -96,10 +96,11 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
     * **Un panier peut contenir plusieurs articles.**
 
-      * Chaque ligne _CartItem_ possède une clé étrangère `shopping_cart_id` pointant vers _ShoppingCart_.
+      * Chaque enregistrement dans la table _CartItem_ possède une clé étrangère `shopping_cart_id` pointant vers la table _ShoppingCart_.
+
     * **Un article appartient à un seul panier.**
 
-      * `CartItem.shopping_cart_id` le relie à ce panier.
+      * Le champ `CartItem.shopping_cart_id` le relie à ce panier.
 
 11. **Product → CartItem**
 
