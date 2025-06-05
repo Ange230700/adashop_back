@@ -76,10 +76,11 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
    * **Une commande peut avoir plusieurs paiements.**
 
-     * Chaque ligne _Payment_ comporte une clé étrangère `order_id` pointant _Order_.
+     * Chaque enregistrement dans la table _Payment_ comporte une clé étrangère `order_id` pointant vers la table _Order_.
+
    * **Un paiement appartient à une seule commande.**
 
-     * `Payment.order_id` relie ce paiement à sa commande.
+     * Le champ `Payment.order_id` relie ce paiement à sa commande.
 
 9. **User → ShoppingCart**
 
