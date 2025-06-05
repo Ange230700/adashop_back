@@ -1,4 +1,4 @@
-<!-- database\entities_relationships.md -->
+<!-- docs\database\entities_relationships.md -->
 
 Voici les relations impliquées par les contraintes de clé étrangère (et les associations prévues) dans le schéma :
 
