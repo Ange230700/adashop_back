@@ -10,6 +10,7 @@ CREATE TABLE `Address`(
 );
 CREATE TABLE `Seller`(
     `seller_id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `address_id` BIGINT NOT NULL,
     `store_name` VARCHAR(255) NOT NULL,
     `contact_phone` VARCHAR(255) NOT NULL,
     `address_seller` VARCHAR(255) NOT NULL,
@@ -26,6 +27,7 @@ CREATE TABLE `Shipment`(
 CREATE TABLE `Review`(
     `review_id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT NOT NULL,
+    `product_id` BIGINT NOT NULL,
     `rating` ENUM('') NOT NULL,
     `comment` VARCHAR(255) NOT NULL,
     `publication_date` DATETIME NOT NULL
@@ -44,7 +46,8 @@ CREATE TABLE `Order`(
     `date_order` DATETIME NOT NULL,
     `status` ENUM('') NOT NULL,
     `total_amount` DECIMAL(8, 2) NOT NULL,
-    `user_id` BIGINT NOT NULL
+    `user_id` BIGINT NOT NULL,
+    `shipping_address_id` BIGINT NOT NULL
 );
 CREATE TABLE `Payment`(
     `payment_id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -52,12 +55,14 @@ CREATE TABLE `Payment`(
     `payment_method` ENUM('') NOT NULL,
     `status` ENUM('') NOT NULL,
     `payment_date` DATETIME NOT NULL,
-    `order_id` BIGINT NOT NULL
+    `order_id` BIGINT NOT NULL,
+    `user_id` BIGINT NOT NULL
 );
 CREATE TABLE `ShoppingCart`(
     `shopping_cart_id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `created_at` DATETIME NOT NULL,
-    `user_id` BIGINT NOT NULL
+    `user_id` BIGINT NOT NULL,
+    `user_session_id` BIGINT NOT NULL
 );
 CREATE TABLE `OrderItem`(
     `order_item_id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -73,6 +78,7 @@ CREATE TABLE `CartItem`(
 );
 CREATE TABLE `Product`(
     `product_id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `seller_id` BIGINT NOT NULL,
     `product_name` VARCHAR(255) NOT NULL,
     `product_description` TEXT NOT NULL,
     `product_price` DOUBLE NOT NULL,
