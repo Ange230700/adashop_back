@@ -46,10 +46,11 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
    * **Une commande peut contenir plusieurs articles.**
 
-     * Chaque ligne _OrderItem_ comporte une clé étrangère `order_id` pointant vers _Order_.
+     * Chaque enregistrement dans la table _OrderItem_ comporte une clé étrangère `order_id` pointant vers la table _Order_.
+
    * **Un article appartient à une seule commande.**
 
-     * `OrderItem.order_id` le relie à sa commande parent.
+     * Le champ `OrderItem.order_id` le relie à sa commande parent.
 
 6. **Product → OrderItem**
 
