@@ -20,13 +20,13 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
    * **Un utilisateur peut être un vendeur. (facultatif)**
 
-     * Si le champ `User.seller_id` n'est pas _null_, il pointe vers un seul vendeur.
+     * Si le champ `User.seller_id` n'est pas _null_, il pointe vers la table _Seller_.
 
 3. **User → Review**
 
    * **Un utilisateur peut rédiger plusieurs avis.**
 
-     * Chaque enregistrement dans la table _Review_ dispose d'une clé étrangère `user_id` pointant vers l'utilisateur.
+     * Chaque enregistrement dans la table _Review_ dispose d'une clé étrangère `user_id` pointant vers la table _User_.
 
    * **Un avis appartient à un seul utilisateur.**
 
@@ -36,10 +36,11 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
    * **Un utilisateur peut passer plusieurs commandes.**
 
-     * Chaque ligne de commande comporte une clé étrangère `user_id` pointant vers _User_.
+     * Chaque enregistrement dans la table _Order_ comporte une clé étrangère `user_id` pointant vers la table _User_.
+
    * **Une commande appartient à un seul utilisateur.**
 
-     * `Order.user_id` indique quel utilisateur a passé cette commande.
+     * Le champ `Order.user_id` indique quel utilisateur a passé cette commande.
 
 5. **Order → OrderItem**
 
