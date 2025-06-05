@@ -104,12 +104,13 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
 11. **Product → CartItem**
 
-    * **Un produit peut apparaître dans plusieurs CartItems.**
+    * **Un produit peut apparaître dans plusieurs items.**
 
-      * Chaque ligne _CartItem_ possède une clé étrangère `product_id` pointant vers _Product_.
-    * **Un CartItem fait référence à un seul produit.**
+      * Chaque enregistrement dans la table _CartItem_ possède une clé étrangère `product_id` pointant vers la table _Product_.
 
-      * `CartItem.product_id` spécifie quel produit se trouve dans le panier.
+    * **Un item fait référence à un seul produit.**
+
+      * Le champ `CartItem.product_id` spécifie quel produit se trouve dans le panier.
 
 12. **Product ↔ Category (via `Product_Category`)**
 
