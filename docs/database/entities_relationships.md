@@ -140,19 +140,21 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
     * **Un utilisateur peut aimer plusieurs produits.**
 
-      * Chaque ligne _Like_ a une clé étrangère `user_id` pointant vers _User_.
-    * **Un Like appartient à exactement un User.**
+      * Chaque enregistrement dans la table _Like_ a une clé étrangère `user_id` pointant vers la table _User_.
 
-      * `Like.user_id` identifie qui a aimé quelque chose.
+    * **Un Like appartient à exactement un utilisateur.**
+
+      * Le champ `Like.user_id` identifie qui a aimé quelque chose.
 
 15. **Product → Like**
 
     * **Un produit peut être aimé par plusieurs utilisateurs.**
 
-      * Chaque ligne _Like_ a une clé étrangère `product_id` pointant vers _Product_.
+      * Chaque enregistrement dans la table _Like_ a une clé étrangère `product_id` pointant vers la table _Product_.
+
     * **Un Like fait référence à exactement un produit.**
 
-      * `Like.product_id` indique quel produit a été aimé.
+      * Le champ `Like.product_id` indique quel produit a été aimé.
 
 ---
 
@@ -162,18 +164,18 @@ Pour résumer, dans le style “Entity A → Entity B” (One‐to‐Many):
 * **Seller → User** (1 seller : *many* users)
 * **User → Review** (1 user : *many* reviews)
 * **User → Order** (1 user : *many* orders)
-* **Order → OrderItem** (1 order : *many* order\_items)
-* **Product → OrderItem** (1 product : *many* order\_items)
+* **Order → OrderItem** (1 order : *many* `order_items`)
+* **Product → OrderItem** (1 product : *many* `order_items`)
 * **Order → Shipment** (1 order : *many* shipments)
 * **Order → Payment** (1 order : *many* payments)
-* **User → ShoppingCart** (1 user : *many* shopping\_carts)
-* **ShoppingCart → CartItem** (1 cart : *many* cart\_items)
-* **Product → CartItem** (1 product : *many* cart\_items)
-* **Product ↔ Category** (many‐to‐many via Product\_Category)
-* **User → UserSession** (1 user : *many* user\_sessions)
+* **User → ShoppingCart** (1 user : *many* `shopping_carts`)
+* **ShoppingCart → CartItem** (1 cart : *many* `cart_items`)
+* **Product → CartItem** (1 product : *many* `cart_items`)
+* **Product ↔ Category** (many‐to‐many via la table `Product_Category`)
+* **User → UserSession** (1 user : *many* `user_sessions`)
 * **User → Like** (1 user : *many* likes)
 * **Product → Like** (1 product : *many* likes)
 
 Et les tables de liaison :
 
-* **Product\_Category**: chaque ligne relie exactement un produit à une seule catégorie (implémentant la relation many‐to‐many).
+* **`Product_Category`**: chaque ligne relie exactement un produit à une seule catégorie (implémentant la relation many‐to‐many).
