@@ -26,10 +26,11 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
    * **Un utilisateur peut rédiger plusieurs avis.**
 
-     * Chaque ligne _Review_ dispose d'une clé étrangère `user_id` pointant vers l'utilisateur.
+     * Chaque enregistrement dans la table _Review_ dispose d'une clé étrangère `user_id` pointant vers l'utilisateur.
+
    * **Un avis appartient à un seul utilisateur.**
 
-     * `Review.user_id` identifie l'utilisateur qui l'a publié.
+     * Le champ `Review.user_id` identifie l'utilisateur qui l'a publié.
 
 4. **User → Order**
 
