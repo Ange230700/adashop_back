@@ -86,10 +86,11 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
    * **Un utilisateur peut avoir plusieurs paniers.**
 
-     * Chaque ligne _ShoppingCart_ a une clé étrangère `user_id` pointant vers _User_.
+     * Chaque enregistrement dans la table _ShoppingCart_ a une clé étrangère `user_id` pointant vers la table _User_.
+
    * **Un panier appartient à un seul utilisateur.**
 
-     * `ShoppingCart.user_id` indique à qui appartient le panier.
+     * Le champ `ShoppingCart.user_id` indique à qui appartient le panier.
 
 10. **ShoppingCart → CartItem**
 
