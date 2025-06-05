@@ -118,20 +118,23 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
       * **Un produit peut appartenir à plusieurs catégories.**
 
-        * `Product_Category` a un clé étrangère `product_id` pointant vers _Product_.
+        * La table `Product_Category` a un clé étrangère `product_id` pointant vers la table _Product_.
+
       * **Une catégorie peut inclure plusieurs produits.**
 
-        * `Product_Category` a un clé étrangère `category_id` pointant vers _Category_.
-    * **Une ligne `Product_Category` relie exactement un produit à exactement une catégorie.**
+        * La table `Product_Category` a un clé étrangère `category_id` pointant vers _Category_.
+
+    * **Une enregistrement dans la table `Product_Category` relie exactement un produit à exactement une catégorie.**
 
 13. **User → UserSession**
 
     * **Un utilisateur peut avoir plusieurs sessions utilisateur.**
 
-      * Chaque ligne _UserSession_ comporte une clé étrangère `user_id` pointant vers _User_.
+      * Chaque enregistrement dans la table _UserSession_ comporte une clé étrangère `user_id` pointant vers la table _User_.
+
     * **Une session utilisateur appartient à exactement un utilisateur.**
 
-      * `UserSession.user_id` indique quel utilisateur est propriétaire de cette session.
+      * Le champ `UserSession.user_id` indique quel utilisateur est propriétaire de cette session.
 
 14. **User → Like**
 
