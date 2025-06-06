@@ -26,7 +26,7 @@ CREATE TABLE `like`(
 CREATE TABLE `order`(
     `order_id` BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `date_order` DATETIME NOT NULL,
-    `status` ENUM('') NOT NULL,
+    `status` ENUM('pending', 'processing', 'shipped', 'delivered', 'canceled', 'returned') NOT NULL,
     `total_amount` DECIMAL(8, 2) NOT NULL,
     `user_id` BIGINT(20) NOT NULL,
     `address_id` BIGINT(20) NOT NULL
@@ -42,8 +42,8 @@ CREATE TABLE `orderitem`(
 CREATE TABLE `payment`(
     `payment_id` BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `amount` DOUBLE NOT NULL,
-    `payment_method` ENUM('') NOT NULL,
-    `status` ENUM('') NOT NULL,
+    `payment_method` ENUM('credit_card', 'cash', 'bank_transfer', 'paypal', 'bitcoin', 'cash_on_delivery') NOT NULL,
+    `status` ENUM('pending', 'completed', 'failed', 'refunded') NOT NULL,
     `payment_date` DATETIME NOT NULL,
     `order_id` BIGINT(20) NOT NULL,
     `user_id` BIGINT(20) NOT NULL
@@ -66,7 +66,7 @@ CREATE TABLE `review`(
     `review_id` BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` BIGINT(20) NOT NULL,
     `product_id` BIGINT(20) NOT NULL,
-    `rating` ENUM('') NOT NULL,
+    `rating` ENUM('1', '2', '3', '4', '5') NOT NULL,
     `comment` VARCHAR(255) NOT NULL,
     `publication_date` DATETIME NOT NULL
 );
@@ -81,8 +81,8 @@ CREATE TABLE `seller`(
 CREATE TABLE `shipment`(
     `shipment_id` BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `shipment_date` DATETIME NOT NULL,
-    `shipment_type` ENUM('') NOT NULL,
-    `status` ENUM('') NOT NULL,
+    `shipment_type` ENUM('standard', 'express', 'overnight') NOT NULL,
+    `status` ENUM('pending', 'in_transit', 'delivered', 'canceled') NOT NULL,
     `order_id` BIGINT(20) NOT NULL
 );
 CREATE TABLE `shoppingcart`(
@@ -96,7 +96,7 @@ CREATE TABLE `user`(
     `username` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `password` TEXT NOT NULL,
-    `role` ENUM('') NOT NULL,
+    `role` ENUM('visitor', 'customer', 'seller', 'admin') NOT NULL,
     `address_id` BIGINT(20) NOT NULL,
     `seller_id` BIGINT(20) NULL DEFAULT NULL
 );
