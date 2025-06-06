@@ -75,7 +75,6 @@ CREATE TABLE `seller`(
     `address_id` BIGINT(20) NOT NULL,
     `store_name` VARCHAR(255) NOT NULL,
     `contact_phone` VARCHAR(255) NOT NULL,
-    `address_seller` VARCHAR(255) NOT NULL,
     `email_seller` VARCHAR(255) NOT NULL,
     `information_seller` VARCHAR(255) NOT NULL
 );

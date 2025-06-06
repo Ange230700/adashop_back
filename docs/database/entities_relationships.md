@@ -164,7 +164,7 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
     * **Un produit appartient à un seul vendeur.**
 
-      * On pourrait ajouter, dans la table *Product*, une colonne `seller_id` (clé étrangère qui pointe vers *Seller*), pour savoir qui commercialise ce produit.
+      * Dans la table *Product*, le champ `seller_id` (clé étrangère qui pointe vers *Seller*), permet de savoir qui commercialise ce produit.
 
 17. **Review → Product**
 
@@ -174,13 +174,13 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
     * **Un avis porte sur un seul produit.**
 
-      * On pourrait enrichir la table *Review* en lui ajoutant une colonne `product_id` (clé étrangère qui pointe vers *Product*) pour lier chaque avis au produit concerné.
+      * Dans la table *Review*, le champ `product_id` (clé étrangère qui pointe vers *Product*) permet de lier chaque avis au produit concerné.
 
 18. **Order → Address (adresse de livraison)**
 
     * **Une commande est livrée à une seule adresse.**
 
-      * Plutôt que de stocker l’adresse de livraison dans un texte libre (ou rien), on pourrait ajouter dans *Order* une colonne `shipping_address_id` (clé étrangère qui pointe vers *Address*), afin de lier la commande à l’adresse enregistrée chez l’utilisateur.
+      * Dans la table *Order*, le champ `address_id` (clé étrangère qui pointe vers *Address*), permet de lier la commande à l’adresse enregistrée chez l’utilisateur.
 
     * **Une adresse (de l’utilisateur) peut servir à plusieurs commandes.**
 
@@ -190,11 +190,11 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
     * **Un utilisateur peut effectuer plusieurs paiements.**
 
-      * Bien que *Order* référence déjà l’utilisateur, on peut souhaiter savoir directement qui a procédé à chaque paiement (par exemple si un administrateur enregistre un paiement manuel).
+      * Bien que la table *Order* référence déjà l’utilisateur, on peut souhaiter savoir directement qui a procédé à chaque paiement (par exemple si un administrateur enregistre un paiement manuel).
 
     * **Un paiement appartient à un seul utilisateur.**
 
-      * On ajouterait une colonne `user_id` (clé étrangère qui pointe vers *User*) dans *Payment*, pour tracer qui a initié ou autorisé le règlement.
+      * Le champ `user_id` (clé étrangère qui pointe vers la table *User*) dans la table *Payment*, permet de tracer qui a initié ou autorisé le règlement.
 
 20. **OrderItem → Seller**
 
@@ -212,45 +212,14 @@ Voici les relations impliquées par les contraintes de clé étrangère (et les 
 
     * **Un panier appartient à une seule session.**
 
-      * On pourrait ajouter, dans *ShoppingCart*, une colonne `user_session_id` (clé étrangère qui pointe vers *UserSession*).
+      * Dans la table *ShoppingCart*, le champ `user_session_id` (clé étrangère qui pointe vers *UserSession*) permet de lier le panier à la session utilisateur courante.
 
 22. **Seller → Address (adresse du magasin)**
 
     * **Un vendeur a une adresse physique (magasin ou entrepôt).**
 
-      * Actuellement, la table *Seller* contient un champ `address_seller` en texte libre. On pourrait à la place ou en plus faire pointer un FK `address_id` vers la table *Address*.
+      * Dans la table *Seller*, le champ `address_id` qui pointe vers la table *Address* permet de lier le vendeur à l’adresse postale.
 
     * **Une adresse (de type magasin/entrepôt) appartient à un seul vendeur.**
 
-      * On ajoute alors, dans *Seller*, `address_id` (clé étrangère qui pointe vers *Address*) pour gérer proprement l’adresse postale du vendeur.
-
----
-
-Pour résumer, dans le style “Entity A → Entity B” (One‐to‐Many):
-
-* **User → Address** (1 user : *many* addresses)
-* **Seller → User** (1 seller : *many* users)
-* **User → Review** (1 user : *many* reviews)
-* **User → Order** (1 user : *many* orders)
-* **Order → OrderItem** (1 order : *many* `order_items`)
-* **Product → OrderItem** (1 product : *many* `order_items`)
-* **Order → Shipment** (1 order : *many* shipments)
-* **Order → Payment** (1 order : *many* payments)
-* **User → ShoppingCart** (1 user : *many* `shopping_carts`)
-* **ShoppingCart → CartItem** (1 cart : *many* `cart_items`)
-* **Product → CartItem** (1 product : *many* `cart_items`)
-* **Product ↔ Category** (many‐to‐many via la table `Product_Category`)
-* **User → UserSession** (1 user : *many* `user_sessions`)
-* **User → Like** (1 user : *many* likes)
-* **Product → Like** (1 product : *many* likes)
-* **Product → Seller** (1 seller : *many* produits)
-* **Review → Product** (1 product : *many* reviews)
-* **Order → Address** (1 order : *1* address)
-* **Payment → User** (1 user : *many* payments)
-* **OrderItem → Seller** (1 seller : *many* `order_items`, via product)
-* **ShoppingCart → UserSession** (1 `user_session` : *1* `shopping_cart`)
-* **Seller → Address** (1 seller : *1* address)
-
-Et les tables de liaison :
-
-* **`Product_Category`**: chaque ligne relie exactement un produit à une seule catégorie (implémentant la relation many‐to‐many).
+      * Dans la table *Seller*, le champ `address_id` (clé étrangère qui pointe vers *Address*) permet de gérer proprement l’adresse postale du vendeur.
