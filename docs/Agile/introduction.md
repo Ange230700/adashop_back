@@ -1,4 +1,4 @@
-<!-- docs\Agile\introduction.md -->
+<!-- docs\agile\introduction.md -->
 
 # Introduction
 

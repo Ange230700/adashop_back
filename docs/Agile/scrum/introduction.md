@@ -1,4 +1,4 @@
-<!-- docs\Agile\scrum\introduction.md -->
+<!-- docs\agile\scrum\introduction.md -->
 
 # Introduction
 
@@ -53,7 +53,7 @@ Il s'agit d'une description simple de la tâche à accomplir, rédigée du point
 
 Une histoire utilisateur doit être rédigée selon la structure suivante :
 
-En tant que [persona], je [veux], [afin que]
+En tant que [persona], je [veux], [afin_que]
 
 Exemple : En tant que manager, je veux pouvoir comprendre les progrès de mes collègues afin de mieux rendre compte de nos succès et de nos échecs.
 
