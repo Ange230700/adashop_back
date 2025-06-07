@@ -1,0 +1,22 @@
+{
+  "name": "adashop_back",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"No test specified yet\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ange230700/adashop_back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ange230700/adashop_back/issues"
+  },
+  "homepage": "https://github.com/Ange230700/adashop_back#readme"
+}
