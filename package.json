@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/Ange230700/adashop_back#readme",
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@eslint/compat": "^1.2.9",
     "@eslint/css": "^0.8.1",
     "@eslint/js": "^9.28.0",
@@ -33,9 +35,14 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
-    "typescript-eslint": "^8.33.1"
+    "typescript-eslint": "^8.33.1",
+    "validate-branch-name": "^1.3.2"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "validate-branch-name": {
+    "pattern": "^(main|dev){1}$|^(feat|fix|test)/.+$",
+    "errorMsg": "Le nom de la branche ne respecte pas le modèle défini. Le modèle est 'main' ou 'dev' ou 'feat/nom-de-la-fonctionnalité' ou 'fix/nom-du-bug' ou 'test/nom-du-test'"
   }
 }
