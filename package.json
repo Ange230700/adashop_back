@@ -6,7 +6,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"No test specified yet\""
+    "test": "echo \"No test specified yet\"",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,23 @@
   "bugs": {
     "url": "https://github.com/Ange230700/adashop_back/issues"
   },
-  "homepage": "https://github.com/Ange230700/adashop_back#readme"
+  "homepage": "https://github.com/Ange230700/adashop_back#readme",
+  "devDependencies": {
+    "@eslint/compat": "^1.2.9",
+    "@eslint/css": "^0.8.1",
+    "@eslint/js": "^9.28.0",
+    "@eslint/json": "^0.12.0",
+    "@eslint/markdown": "^6.5.0",
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
+    "globals": "^16.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.33.1"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
 }

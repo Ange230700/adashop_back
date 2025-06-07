@@ -5,24 +5,23 @@
 Scrum est l'un des frameworks agiles les plus utilisés.
 Il aide les équipes à travailler et à collaborer ensemble, un peu comme une équipe de rugby qui se prépare pour le grand match (le nom « scrum » vient du rugby), scrum est axé sur l'**amélioration continue**.
 
-
 L'idée du Scrum est de décomposer la vision du produit en petits éléments et de les attribuer à de petites équipes, puis de diviser le temps en cycles de développement d'une à quatre semaines.
 
 La méthodologie Scrum repose sur cinq valeurs, qui sont les suivantes :
 
-* Concentration
-* Engagement
-* Respect
-* Ouverture
-* Courage
+- Concentration
+- Engagement
+- Respect
+- Ouverture
+- Courage
 
 ## L'équipe Scrum
 
 En général, une équipe Scrum est composée de :
 
-* Un Product Owner, qui est responsable de la vision du produit et de l'équipe Scrum
-* Un Scrum Master, qui est responsable de la gestion de l'équipe Scrum
-* L'équipe de développement
+- Un Product Owner, qui est responsable de la vision du produit et de l'équipe Scrum
+- Un Scrum Master, qui est responsable de la gestion de l'équipe Scrum
+- L'équipe de développement
 
 ### Product Owner
 
@@ -37,9 +36,9 @@ Le backlog produit est une liste de tâches **(user stories)** qui sont définie
 
 Une tâche peut être :
 
-* Une fonctionnalité qui doit être implémentée
-* Une amélioration d'une fonctionnalité existante
-* Un bug à corriger
+- Une fonctionnalité qui doit être implémentée
+- Une amélioration d'une fonctionnalité existante
+- Un bug à corriger
 
 Le backlog constitue la référence unique d’une équipe Scrum. Aucune action ne peut être entreprise si elle n’est pas inscrite dans le backlog produit.
 
@@ -53,7 +52,7 @@ Il s'agit d'une description simple de la tâche à accomplir, rédigée du point
 
 Une histoire utilisateur doit être rédigée selon la structure suivante :
 
-En tant que [persona], je [veux], [afin_que]
+En tant que **_persona_**, je **_veux_**, **_afin que_**
 
 Exemple : En tant que manager, je veux pouvoir comprendre les progrès de mes collègues afin de mieux rendre compte de nos succès et de nos échecs.
 
@@ -61,12 +60,12 @@ Exemple : En tant que manager, je veux pouvoir comprendre les progrès de mes co
 
 La qualité de la description d’une user story peut être vérifiée à l’aide des critères INVEST.
 
-* Independent (indépendant) : chaque user story est indépendante de toutes les autres.
-* Negotiable (négociable) : Les détails doivent être négociables. En fait, il faut répondre aux questions « quoi » et « pourquoi », mais pas « comment ».
-* Valuable (utile) : Les user stories doivent apporter une valeur ajoutée à l'entreprise. Cette valeur ajoutée doit être claire.
-* Estimable (estimé) : Une user story doit pouvoir être estimée par l'équipe de développement.
-* Small (petite) : Une user story doit être suffisamment petite pour pouvoir être réalisée en peu de temps.
-* Testable (testable) : Une user story doit être testable.
+- Independent (indépendant) : chaque user story est indépendante de toutes les autres.
+- Negotiable (négociable) : Les détails doivent être négociables. En fait, il faut répondre aux questions « quoi » et « pourquoi », mais pas « comment ».
+- Valuable (utile) : Les user stories doivent apporter une valeur ajoutée à l'entreprise. Cette valeur ajoutée doit être claire.
+- Estimable (estimé) : Une user story doit pouvoir être estimée par l'équipe de développement.
+- Small (petite) : Une user story doit être suffisamment petite pour pouvoir être réalisée en peu de temps.
+- Testable (testable) : Une user story doit être testable.
 
 ## Le sprint
 

@@ -4,17 +4,17 @@ Jira est reconnu comme l'un des outils de gestion des tâches les plus puissants
 
 le présent document traite les sujets suivants :
 
-* Qu'est-ce que Jira ?
-* Comment créer un compte sur Jira?
-* Comment créer un backlog sur Jira?
-* Comment lancer un sprint sur Jira?
-* Comment afficher le burndown chart?
+- Qu'est-ce que Jira ?
+- Comment créer un compte sur Jira?
+- Comment créer un backlog sur Jira?
+- Comment lancer un sprint sur Jira?
+- Comment afficher le burndown chart?
 
-# Qu'est-ce que Jira ?
+## Qu'est-ce que Jira ?
 
 Jira est un outil de gestion de projet et de tâches qui permet de suivre l'avancement des projets et des tâches. Il est utile pour gérer et diriger des projets Scrum.
 
-# Comment créer un compte sur Jira
+## Comment créer un compte sur Jira
 
 La première étape pour utiliser Jira consiste à créer un compte.
 Il faut suivre attentivement toutes les étapes indiquées ici pour créer votre compte.
@@ -22,13 +22,13 @@ Il faut suivre attentivement toutes les étapes indiquées ici pour créer votre
 Il faut se rendre sur [le site web de Jira](https://www.atlassian.com/software/jira) et cliquer sur le bouton "Sign Up for Free" pour créer votre compte !
 Ensuite, il faut:
 
-* Choisir le produit (généralement **Jira** et **Confluence**, qui peuvent également être utilisés pour la documentation).
-* Donner le nom du site (le nom doit être valable non seulement pour votre projet, mais aussi pour tous les produits Jira, afin que vous puissiez donner votre nom comme nom du site).
-* Suivre ensuite les étapes et répondre aux questions.
-* Sélectionner le modèle pour Scrum.
-* Écrire le nom de votre projet.
+- Choisir le produit (généralement **Jira** et **Confluence**, qui peuvent également être utilisés pour la documentation).
+- Donner le nom du site (le nom doit être valable non seulement pour votre projet, mais aussi pour tous les produits Jira, afin que vous puissiez donner votre nom comme nom du site).
+- Suivre ensuite les étapes et répondre aux questions.
+- Sélectionner le modèle pour Scrum.
+- Écrire le nom de votre projet.
 
-# Comment créer un backlog sur Jira?
+## Comment créer un backlog sur Jira?
 
 Pour ajouter des **user stories** au backlog dans Jira, il faut accéder à la section « Backlog ». Dans cette section, il faut saisir la **user story** et appuyez sur « Entrée » lorsque c'est terminé.
 
@@ -42,7 +42,7 @@ Le nombre de points d’histoire peut également être renseigné pour chaque us
 
 ![Points d'histoire](https://storage.googleapis.com/quest_editor_uploads/a5oUYh7D4Oc04g6FZyHpJ8dNsa6b4jUb.jpg)
 
-# Lancer un sprint
+## Lancer un sprint
 
 Le démarrage d’un sprint dans Jira s’effectue au moyen du bouton « Créer un sprint ».
 
@@ -56,6 +56,6 @@ Une fois toutes les cartes sélectionnées pour le sprint, il convient de clique
 
 ![Fenêtre modale](https://storage.googleapis.com/quest_editor_uploads/2njf2I11r7yP3b9tEEUz0ComyJemb4Cc.png)
 
-## Le sprint board
+### Le sprint board
 
 Le sprint board est une vue d'ensemble des sprints en cours et les sprints précédents. Il montre la progression des tâches et des délais pour chaque sprint.
