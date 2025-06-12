@@ -3,8 +3,14 @@
     "adashop",
     "burndown",
     "cartitem",
+    "datasource",
+    "johndoe",
+    "mydb",
+    "mysql",
     "orderitem",
     "paypal",
+    "prisma",
+    "randompassword",
     "shoppingcart",
     "usersession"
   ]
