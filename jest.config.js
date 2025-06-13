@@ -7,8 +7,4 @@ module.exports = {
   moduleNameMapper: {
     '^~/(.*)$': '<rootDir>/$1',
   },
-  // If you use a different tsconfig for tests, point to it:
-  globals: {
-    'ts-jest': { tsconfig: 'tsconfig.json' },
-  },
 };
