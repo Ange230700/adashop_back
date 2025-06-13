@@ -29,6 +29,7 @@
     "commitlint.config.mjs",
     "prisma/**/*.ts",
     "test/**/*",
-    "eslint.config.mjs"
+    "eslint.config.mjs",
+    "jest.config.js"
   ]
 }
