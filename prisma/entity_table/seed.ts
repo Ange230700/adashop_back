@@ -5,10 +5,8 @@ import { faker } from '@faker-js/faker';
 import cleanUp from '~/prisma/helpers/cleanUp';
 
 async function seedEntityTable() {
-  console.log('👋 Cleaning up...');
   await cleanUp();
 
-  console.log('🌱 Seeding...');
   const COUNT = 10;
 
   const fakeTableRecords = Array.from({ length: COUNT }).map(() => ({
