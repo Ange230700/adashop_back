@@ -2,7 +2,7 @@
 
 import { Prisma } from '@prisma/client';
 
-async function safeDelete(fn: () => Promise<unknown>, name: string) {
+async function deleteSafely(fn: () => Promise<unknown>, name: string) {
   const MAX_TRIES = 10;
   let tries = 0;
   while (true) {
@@ -26,4 +26,4 @@ async function safeDelete(fn: () => Promise<unknown>, name: string) {
   }
 }
 
-export default safeDelete;
+export default deleteSafely;
