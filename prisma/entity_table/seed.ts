@@ -5,10 +5,16 @@ import { faker } from '@faker-js/faker';
 import cleanUp from '~/prisma/helpers/cleanUp';
 
 async function seedEntityTable() {
-  console.log('👋 Cleaning up...');
-  await cleanUp();
+  const skipCleanup = process.env.SKIP_CLEANUP === 'false';
 
-  console.log('🌱 Seeding...');
+  if (!skipCleanup) {
+    console.log('🧹 Cleaning up…');
+    await cleanUp();
+    console.log('🧹 Cleaning up complete.');
+  } else {
+    console.log('⚠️ Skipping cleanup (SKIP_CLEANUP=true)');
+  }
+
   const COUNT = 10;
 
   const fakeTableRecords = Array.from({ length: COUNT }).map(() => ({

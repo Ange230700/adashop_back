@@ -1,4 +1,4 @@
-// test\app.e2e-spec.ts
+// test\records.e2e-spec.ts
 
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
@@ -6,7 +6,7 @@ import request from 'supertest';
 import { App } from 'supertest/types';
 import { AppModule } from '~/src/app.module';
 
-describe('AppController (e2e)', () => {
+describe('RecordsController (e2e)', () => {
   let app: INestApplication<App>;
 
   beforeEach(async () => {
@@ -18,9 +18,9 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/records (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/records')
       .expect(200)
       .expect('Hello World!');
   });
