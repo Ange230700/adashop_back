@@ -8,4 +8,8 @@ export class RecordsService {
   async findAll() {
     return prisma.entity_table.findMany();
   }
+
+  findOne(id: number) {
+    return prisma.entity_table.findUnique({ where: { id } });
+  }
 }
