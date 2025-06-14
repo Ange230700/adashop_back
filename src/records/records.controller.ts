@@ -3,15 +3,26 @@
 import {
   Controller,
   Get,
+  Post,
+  Body,
   Param,
+  Patch,
+  Delete,
   NotFoundException,
   ParseIntPipe,
 } from '@nestjs/common';
 import { RecordsService } from '~/src/records/records.service';
+import { CreateRecordDto } from '~/src/records/dto/create-record.dto';
+import { UpdateRecordDto } from '~/src/records/dto/update-record.dto';
 
 @Controller('records')
 export class RecordsController {
   constructor(private readonly recordsService: RecordsService) {}
+
+  @Post()
+  create(@Body() createRecordDto: CreateRecordDto) {
+    return this.recordsService.create(createRecordDto);
+  }
 
   @Get()
   async findAll() {
@@ -25,5 +36,18 @@ export class RecordsController {
       throw new NotFoundException(`Record with id ${id} not found`);
     }
     return record;
+  }
+
+  @Patch(':id')
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateRecordDto: UpdateRecordDto,
+  ) {
+    return this.recordsService.update(id, updateRecordDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.recordsService.remove(id);
   }
 }

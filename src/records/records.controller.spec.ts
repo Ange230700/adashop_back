@@ -15,7 +15,13 @@ describe('RecordsController', () => {
       providers: [
         {
           provide: RecordsService,
-          useValue: { findAll: jest.fn(), findOne: jest.fn() },
+          useValue: {
+            create: jest.fn(),
+            findAll: jest.fn(),
+            findOne: jest.fn(),
+            update: jest.fn(),
+            remove: jest.fn(),
+          },
         },
       ],
     }).compile();
@@ -53,6 +59,56 @@ describe('RecordsController', () => {
 
       await expect(controller.findOne(mockRecord.id)).resolves.toBe(mockRecord);
       expect(service.findOne).toHaveBeenCalledWith(mockRecord.id);
+    });
+  });
+
+  describe('create', () => {
+    it('should create a record', async () => {
+      const dto = {
+        field_1: faker.lorem.word(),
+        field_2: faker.datatype.boolean(),
+        field_3: faker.number.int({ min: 0, max: 100 }),
+        field_4: faker.date.recent(),
+      };
+      const created = { id: 1, ...dto };
+      jest.spyOn(service, 'create').mockResolvedValue(created);
+
+      await expect(controller.create(dto)).resolves.toBe(created);
+      expect(service.create).toHaveBeenCalledWith(dto);
+    });
+  });
+
+  describe('update', () => {
+    it('should update a record', async () => {
+      const id = 1;
+      const dto = { field_1: 'updated' };
+      const updated = {
+        id,
+        field_1: dto.field_1,
+        field_2: faker.datatype.boolean(),
+        field_3: faker.number.int({ min: 0, max: 100 }),
+        field_4: faker.date.recent(),
+      };
+      jest.spyOn(service, 'update').mockResolvedValue(updated);
+
+      await expect(controller.update(id, dto)).resolves.toBe(updated);
+      expect(service.update).toHaveBeenCalledWith(id, dto);
+    });
+  });
+
+  describe('remove', () => {
+    it('should remove a record', async () => {
+      const id = 1;
+      const removed = {
+        id,
+        field_1: faker.lorem.word(),
+        field_2: faker.datatype.boolean(),
+        field_3: faker.number.int({ min: 0, max: 100 }),
+        field_4: faker.date.recent(),
+      };
+      jest.spyOn(service, 'remove').mockResolvedValue(removed);
+      await expect(controller.remove(id)).resolves.toEqual(removed);
+      expect(service.remove).toHaveBeenCalledWith(id);
     });
   });
 });
